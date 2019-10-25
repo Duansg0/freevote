@@ -1,6 +1,6 @@
 package com.freevote.annotation;
 
-import com.duansg.vote.util.WeChatUrlHandlerUtil;
+import com.freevote.config.Config;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -8,7 +8,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import javax.servlet.http.HttpServletRequest;
 
 @Aspect
@@ -16,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 public class WeChatAuthHandlerAspect {
 
 
-    @Pointcut(value = "@annotation(com.duansg.vote.annotation.WeChatAuthHandler)")
+    @Pointcut(value = "@annotation(com.freevote.annotation.WeChatAuthHandler)")
     private void pointcut() {
 
     }
