@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+
+    <!-- 磁盘缓存位置:当EhCache把数据写到硬盘上时，将把数据写到这个文件目录下 -->
+    <diskStore path="java.io.tmpdir"/>
+
+    <!-- 设定缓存的默认数据过期策略 -->
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            overflowToDisk="true"
+            timeToIdleSeconds="10"
+            timeToLiveSeconds="20"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120" />
+
+    <!-- 10秒过期，只能缓存20秒 -->
+    <cache name="cacheSuper"
+           maxElementsInMemory="1000"
+           maxElementsOnDisk="1000"
+           eternal="false"
+           timeToIdleSeconds="30"
+           timeToLiveSeconds="30"
+           overflowToDisk="true"
+           diskPersistent="false" />
+
+    <!-- 缓存7000s -->
+    <cache name="token"
+           maxElementsInMemory="10000"
+           maxElementsOnDisk="100000"
+           eternal="false"
+           timeToIdleSeconds="7000"
+           timeToLiveSeconds="7000"
+           overflowToDisk="true"
+           diskPersistent="false" />
+
+    <!-- 缓存半小时 -->
+    <cache name="halfHour"
+           maxElementsInMemory="10000"
+           maxElementsOnDisk="100000"
+           eternal="false"
+           timeToIdleSeconds="1800"
+           timeToLiveSeconds="1800"
+           overflowToDisk="true"
+           diskPersistent="false" />
+
+    <!-- 缓存一小时 -->
+    <cache name="oneHour"
+           maxElementsInMemory="10000"
+           maxElementsOnDisk="100000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="3600"
+           overflowToDisk="true"
+           diskPersistent="false" />
+
+    <!-- 缓存一天 -->
+    <cache name="oneDay"
+           maxElementsInMemory="10000"
+           maxElementsOnDisk="100000"
+           eternal="false"
+           timeToIdleSeconds="86400"
+           timeToLiveSeconds="86400"
+           overflowToDisk="true"
+           diskPersistent="false" />
+
+</ehcache>
