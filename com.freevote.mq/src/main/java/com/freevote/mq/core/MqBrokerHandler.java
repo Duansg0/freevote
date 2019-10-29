@@ -1,9 +1,7 @@
-package com.freevote.core;
+package com.freevote.mq.core;
 
-import com.freevote.broker.MqBroker;
+import com.freevote.mq.broker.MqBroker;
 import org.apache.commons.lang3.StringUtils;
-
-import java.util.concurrent.ArrayBlockingQueue;
 
 /**
  * @author Duansg

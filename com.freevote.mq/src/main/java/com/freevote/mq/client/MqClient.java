@@ -1,12 +1,8 @@
-package com.freevote.client;
+package com.freevote.mq.client;
 
-import com.alibaba.fastjson.JSON;
-import com.freevote.context.MqHandlerContextHolder;
-import com.freevote.core.MqClientHandler;
-import javassist.util.proxy.MethodHandler;
-import javassist.util.proxy.ProxyObject;
-
-import java.lang.reflect.Method;
+import com.freevote.mq.constant.MqAgreementConstant;
+import com.freevote.mq.utils.ApplicationContextUtil;
+import com.freevote.mq.broker.MqBokerServerCentre;
 
 /**
  * MQ客户端
@@ -19,10 +15,8 @@ public class MqClient {
      * @param message
      */
     public static void producerOffer(String message)throws Exception{
-        MqClientHandler.produce(MqClientHandler.PRODUCER_OFFER + message);
+        ApplicationContextUtil.getBeanByType(MqBokerServerCentre.class).execute(MqAgreementConstant.PRODUCER_OFFER + message);
     }
-
-
 
     /**
      * 生产消息
@@ -30,7 +24,7 @@ public class MqClient {
      * @param message
      */
     public static void producerPut(String message)throws Exception{
-        MqClientHandler.produce(MqClientHandler.PRODUCER_PUT + message);
+        ApplicationContextUtil.getBeanByType(MqBokerServerCentre.class).execute(MqAgreementConstant.PRODUCER_PUT + message);
     }
 
     /**
@@ -40,7 +34,7 @@ public class MqClient {
      * @throws Exception
      */
     public static String consumePoll() throws Exception {
-        return MqClientHandler.consume(MqClientHandler.CONSUME_POLL);
+        return ApplicationContextUtil.getBeanByType(MqBokerServerCentre.class).execute(MqAgreementConstant.CONSUME_POLL);
     }
 
     /**
@@ -50,14 +44,6 @@ public class MqClient {
      * @throws Exception
      */
     public static String consumeTake() throws Exception {
-        return MqClientHandler.consume(MqClientHandler.CONSUME_TAKE);
+        return ApplicationContextUtil.getBeanByType(MqBokerServerCentre.class).execute(MqAgreementConstant.CONSUME_TAKE);
     }
-
-    public static void main(String[] args) throws Exception{
-      //MqClient.producerPut("发送消息");
-
-                String s = MqClient.consumeTake();
-        System.out.println(s);
-    }
-
 }

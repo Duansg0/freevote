@@ -1,4 +1,4 @@
-package com.freevote.context;
+package com.freevote.mq.context;
 
 public class MqHandlerContextHolder {
 

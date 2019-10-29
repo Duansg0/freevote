@@ -1,4 +1,4 @@
-package com.freevote.broker;
+package com.freevote.mq.broker;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
