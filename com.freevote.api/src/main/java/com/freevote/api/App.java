@@ -1,4 +1,4 @@
-package com.freevote;
+package com.freevote.api;
 
 /**
  * Hello world!
