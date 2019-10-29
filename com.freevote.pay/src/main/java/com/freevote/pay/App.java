@@ -1,4 +1,4 @@
-package com.freevote;
+package com.freevote.pay;
 
 /**
  * Hello world!

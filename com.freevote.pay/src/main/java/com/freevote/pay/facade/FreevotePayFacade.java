@@ -1,4 +1,4 @@
-package com.freevote.facade;
+package com.freevote.pay.facade;
 
 public interface FreevotePayFacade {
 
