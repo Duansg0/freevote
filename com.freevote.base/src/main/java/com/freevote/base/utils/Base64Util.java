@@ -1,4 +1,4 @@
-package com.freevote.utils;
+package com.freevote.base.utils;
 
 import org.apache.commons.codec.binary.Base64;
 

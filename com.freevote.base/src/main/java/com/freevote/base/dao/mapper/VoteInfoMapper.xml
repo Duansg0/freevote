@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.freevote.base.dao.impl.VoteInfoDaoImpl">
+
+    <insert id="insert" parameterType="com.freevote.base.entity.VoteInfo">
+        <![CDATA[
+		INSERT INTO VOTE_INFO (
+		    IMG_URL,
+            VOTE_CODE,
+            VOTE_PROFILE,
+            VOTE_RULE,
+            VOTE_PRIZE,
+            CREATE_TIME,
+            MODIFY_TIME,
+            DELETED
+		) VALUES (
+		    #{imgUrl,jdbcType=VARCHAR},
+		   	#{voteCode,jdbcType=VARCHAR},
+		   	#{voteProfile,jdbcType=VARCHAR},
+	        #{voteRule,jdbcType=VARCHAR},
+	        #{votePrize,jdbcType=VARCHAR},
+		   	#{createTime,jdbcType=TIMESTAMP},
+            #{modifyTime,jdbcType=TIMESTAMP},
+            #{deleted,jdbcType=VARCHAR}
+		)
+		]]>
+    </insert>
+    <select id="get" resultType="com.freevote.base.entity.VoteInfo" parameterType="map">
+        select
+            ID id,
+            IMG_URL imgUrl,
+            VOTE_CODE voteCode,
+            VOTE_PROFILE voteProfile,
+            VOTE_RULE voteRule,
+            VOTE_PRIZE votePrize,
+            CREATE_TIME createTime,
+            MODIFY_TIME modifyTime,
+            DELETED deleted
+         from VOTE_INFO where ID = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="findAll" parameterType="map" resultType="com.freevote.base.entity.VoteInfo">
+       select
+            ID id,
+            IMG_URL imgUrl,
+            VOTE_CODE voteCode,
+            VOTE_PROFILE voteProfile,
+            VOTE_RULE voteRule,
+            VOTE_PRIZE votePrize,
+            CREATE_TIME createTime,
+            MODIFY_TIME modifyTime,
+            DELETED deleted
+         from VOTE_INFO
+    </select>
+    <select id="selectOne" parameterType="com.freevote.base.entity.VoteInfo" resultType="com.freevote.base.entity.VoteInfo">
+        select
+        ID id,
+        IMG_URL imgUrl,
+        VOTE_CODE voteCode,
+        VOTE_PROFILE voteProfile,
+        VOTE_RULE voteRule,
+        VOTE_PRIZE votePrize,
+        CREATE_TIME createTime,
+        MODIFY_TIME modifyTime,
+        DELETED deleted
+        from VOTE_INFO
+        <where>
+            <if test="voteCode != null">
+                AND VOTE_CODE = #{voteCode,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+
+    <update id="update" parameterType="com.freevote.base.entity.VoteInfo">
+        UPDATE VOTE_INFO
+        <set>
+            <if test="imgUrl != null">
+                IMG_URL = #{imgUrl,jdbcType=TIMESTAMP},
+            </if>
+            <if test="voteCode != null">
+                VOTE_CODE = #{voteCode,jdbcType=TIMESTAMP},
+            </if>
+            <if test="voteProfile != null">
+                VOTE_PROFILE = #{voteProfile,jdbcType=TIMESTAMP},
+            </if>
+            <if test="voteRule != null">
+                VOTE_RULE = #{voteRule,jdbcType=TIMESTAMP},
+            </if>
+            <if test="votePrize != null">
+                VOTE_PRIZE = #{votePrize,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyTime != null">
+                MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deleted != null">
+                DELETED = #{deleted,jdbcType=VARCHAR},
+            </if>
+        </set>
+        WHERE ID = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
