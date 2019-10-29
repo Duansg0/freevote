@@ -1,6 +1,6 @@
-package com.freevote.dao;
+package com.freevote.common.base;
 
-import com.freevote.entity.BaseEntity;
+import com.freevote.common.entity.BaseEntity;
 import java.io.Serializable;
 import java.util.List;
 

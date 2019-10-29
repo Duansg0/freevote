@@ -1,8 +1,8 @@
-package com.freevote.dao.impl;
+package com.freevote.common.base.impl;
 
-import com.freevote.dao.BaseDao;
-import com.freevote.dao.SqlSessionDao;
-import com.freevote.entity.BaseEntity;
+import com.freevote.common.base.BaseDao;
+import com.freevote.common.base.SqlSessionDao;
+import com.freevote.common.entity.BaseEntity;
 
 import java.io.Serializable;
 import java.util.HashMap;

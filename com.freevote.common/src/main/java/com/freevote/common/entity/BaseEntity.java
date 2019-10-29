@@ -1,4 +1,4 @@
-package com.freevote.entity;
+package com.freevote.common.entity;
 
 import lombok.Data;
 

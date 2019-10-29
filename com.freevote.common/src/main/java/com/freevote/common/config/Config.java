@@ -1,4 +1,4 @@
-package com.freevote.config;
+package com.freevote.common.config;
 
 import lombok.Data;
 

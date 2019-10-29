@@ -1,7 +1,6 @@
-package com.freevote.dao;
+package com.freevote.common.base;
 
 import org.apache.ibatis.session.SqlSession;
-
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -12,6 +11,7 @@ public abstract class SqlSessionDao {
     protected String getMethodName() {
         return Thread.currentThread().getStackTrace()[2].getMethodName();
     }
+
     protected <E> E selectOne(String id, Object parameter) {
         String statement = buildStatNameById(id);
         return (E)this.sqlSession.selectOne(statement, parameter);
