@@ -12,10 +12,12 @@
         base ：基础信息
         common ：公共资源
         pay ：支付相关
+        mq : 消息服务
 ### 开发平台
         操作系统	：Windows 7[i3-4170] 4G 120SSD
         数据库：Mysql-5.6.45-winx64
         缓存：Ehcache-2.10.4
+        消息：ArrayBlockingQueue
         应用服务器：Tomcat-8.5.23
         开发工具	：IntelliJ IDEA
         项目管理工具：GitLab
